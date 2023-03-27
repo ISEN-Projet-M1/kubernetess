@@ -1,10 +1,10 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: monpods
+  name: nginx
 spec:
   selector:
-    app: monpods
+    app: nginx
   ports:
   - port: 80
     targetPort: 80

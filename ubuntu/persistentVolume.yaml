@@ -1,14 +1,14 @@
 kind: PersistentVolume
 apiVersion: v1
 metadata:
-  name: monpv-nginx
+  name: monpv-ubuntu
   labels:
     type: local
 spec:
   storageClassName: manual
   capacity:
-    storage: 1Gi
+    storage: 10Gi
   accessModes:
     - ReadWriteMany
   hostPath:
-    path: "/pvdata-nginx"
+    path: "/pvdata-unbuntu"

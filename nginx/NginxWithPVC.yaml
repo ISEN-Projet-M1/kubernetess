@@ -1,14 +1,14 @@
 kind: Pod
 apiVersion: v1
 metadata:
-  name: monpods
+  name: nginx
   labels:
-    app: monpods
+    app: nginx
 spec:
   volumes:
     - name: monstorage
       persistentVolumeClaim:
-        claimName: monpvc
+        claimName: monpvc-nginx
   containers:
     - name: sftp
       image: atmoz/sftp
