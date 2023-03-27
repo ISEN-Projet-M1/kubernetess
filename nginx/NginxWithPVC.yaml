@@ -1,0 +1,40 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: monpods
+  labels:
+    app: monpods
+spec:
+  volumes:
+    - name: monstorage
+      persistentVolumeClaim:
+        claimName: monpvc
+  containers:
+    - name: sftp
+      image: atmoz/sftp
+      ports:
+        - containerPort: 22
+      volumeMounts:
+        - name: monstorage
+          mountPath: /home/user/www-data
+      env:
+      - name: SFTP_USERS
+        value: "user:pass:1001"
+      - name: SFTP_ROOT
+        value: "/"
+      
+    - name: monnginx
+      image: nginx
+      ports:
+        - containerPort: 80
+      volumeMounts:
+        - mountPath: "/usr/share/nginx/html"
+          name: monstorage
+      resources:
+        requests:
+          memory: "1Gi"
+          cpu: "0.5"
+        limits:
+          memory: "2Gi"
+          cpu: "1"
+

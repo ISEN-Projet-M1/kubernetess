@@ -1,0 +1,15 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: monpods
+spec:
+  selector:
+    app: monpods
+  ports:
+  - port: 80
+    targetPort: 80
+    name: http
+  - port: 22
+    targetPort: 22
+    name: open-ssh
+  type: LoadBalancer
