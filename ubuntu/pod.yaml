@@ -13,10 +13,3 @@ spec:
     - containerPort: 22
     stdin: true
     tty: true
-    volumeMounts:
-    - name: root-volume
-      mountPath: /home/user/documents
-  volumes:
-  - name: root-volume
-    persistentVolumeClaim:
-      claimName: monpvc-ubuntu
