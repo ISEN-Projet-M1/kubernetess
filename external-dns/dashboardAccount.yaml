@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: admin-user
+  namespace: kubernetes-dashboard
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: admin-user
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: cluster-admin
+subjects:
+  - kind: ServiceAccount
+    name: admin-user
+    namespace: kubernetes-dashboard
+
+# token of serveroo
+#  eyJhbGciOiJSUzI1NiIsImtpZCI6IndqYXIwMGJSQ1EwUkdlMlRHM2NiVnFHczZzQmJHeG9XTVNESXJZUkctancifQ.eyJhdWQiOlsiaHR0cHM6Ly9rdWJlcm5ldGVzLmRlZmF1bHQuc3ZjLmNsdXN0ZXIubG9jYWwiXSwiZXhwIjoxNjgwNzcyMDM2LCJpYXQiOjE2ODA3Njg0MzYsImlzcyI6Imh0dHBzOi8va3ViZXJuZXRlcy5kZWZhdWx0LnN2Yy5jbHVzdGVyLmxvY2FsIiwia3ViZXJuZXRlcy5pbyI6eyJuYW1lc3BhY2UiOiJrdWJlcm5ldGVzLWRhc2hib2FyZCIsInNlcnZpY2VhY2NvdW50Ijp7Im5hbWUiOiJhZG1pbi11c2VyIiwidWlkIjoiMzU4MmU5MmMtMGM5YS00OWQ4LTg4ZWQtMzNiZjJjNTc0MDQ5In19LCJuYmYiOjE2ODA3Njg0MzYsInN1YiI6InN5c3RlbTpzZXJ2aWNlYWNjb3VudDprdWJlcm5ldGVzLWRhc2hib2FyZDphZG1pbi11c2VyIn0.2KQtJHevxYQfvuWhdya4wvj6Fc59vE0pE_zbyX5AD0-nMFkeZ9whEOwPD3yyIfcQM0wPOvxAll-h8Fh0PyB_d5RASnDo8tn7tDyyPS1oSP67co6oSXNnj3YudRg6BGb3BJGiKpr0SmrBAYvdSJUkl7O54sD1Kc0gmCwWKDbtXp5c56V0AodasI8KL-OPcnqDKW7cM3hq9qa-E_buX61nRGoenbsJTDCpGXnI5X-in_kytYiCdbSGcUyviIlPOD2Y-lPgciOwF9G8qZofmqZ2SuShSZZN004s9AqCltUk80_ZIMO4kWKvfpXcX7rW9qd4ftBFN0VUOJT69pBnNxeYmA

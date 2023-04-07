@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-node
+spec:
+  selector:
+    matchLabels:
+      app: hello-node
+  template:
+    metadata:
+      labels:
+        app: hello-node
+    spec:
+      containers:
+        - image: registry.k8s.io/e2e-test-images/agnhost:2.39
+          name: hello-node
+          ports:
+            - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-node
+#                annotations:
+#                  external-dns.alpha.kubernetes.io/hostname: example.com
+#                  external-dns.alpha.kubernetes.io/ttl: "120" #optional
+spec:
+  selector:
+    app: hello-node
+  type: LoadBalancer
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
