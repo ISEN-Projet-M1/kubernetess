@@ -8,8 +8,14 @@ spec:
   containers:
   - name: ubuntu-ssh
     image: ubuntu
-    command: ["bash", "-c", "apt-get update && apt-get install -y sudo && apt-get install -y openssh-server && useradd -m user && echo 'user:user' | chpasswd && usermod -aG sudo user && service ssh start && tail -f /dev/null"]
+    env:
+    - name: PASSWORD
+      value: password
+    - name: USER
+      value: value
+    command: ["bash", "-c", "apt-get update && apt-get install -y sudo && apt-get install -y openssh-server && useradd -m user && echo 'user:$(PASSWORD)' | chpasswd && usermod -aG sudo user && service ssh start && tail -f /dev/null"]
     ports:
     - containerPort: 22
     stdin: true
     tty: true
+    
