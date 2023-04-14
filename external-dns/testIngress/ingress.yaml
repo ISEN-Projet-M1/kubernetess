@@ -22,3 +22,4 @@ spec:
                 name: banana-service
                 port:
                   number: 5678
+  ingressClassName: nginx
