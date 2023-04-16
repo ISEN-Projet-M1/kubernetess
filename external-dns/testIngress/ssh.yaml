@@ -2,17 +2,18 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: ssh-ingress
+  namespace: 3y87k1dawhvho8sy8bowc8
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /$1
+    kubernetes.io/ingress.class: haproxy
 spec:
   rules:
-    - http:
+    - host: ssh.serveroo.fr
+      http:
         paths:
           - pathType: Prefix
-            path: /ssh
+            path: /
             backend:
               service:
                 name: ssh-service
                 port:
                   number: 22
-  ingressClassName: nginx
