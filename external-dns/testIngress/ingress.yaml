@@ -2,11 +2,11 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: banana-apple-ingress
-  annotations:
-    kubernetes.io/ingress.class: haproxy
+  namespace: user
 spec:
+  ingressClassName: nginx
   rules:
-    - host: "apple.serveroo.fr"
+    - host: "http.user.serveroo.fr"
       http:
         paths:
           - pathType: Prefix
