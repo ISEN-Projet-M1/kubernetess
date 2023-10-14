@@ -1,0 +1,15 @@
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: monpv-ubuntu
+  labels:
+    app: ubuntu-app
+    type: local
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 1G
+  accessModes:
+    - ReadWriteMany
+  hostPath:
+    path: "/pvdata-ubuntu"
