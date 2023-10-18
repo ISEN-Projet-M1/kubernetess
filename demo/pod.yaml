@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: ubuntu-name
+  name: ubuntu-pod
   labels:
     app: ubuntu-app
 spec:
@@ -13,7 +13,7 @@ spec:
       value: password
     - name: USER
       value: value
-    command: ["bash", "-c", "apt-get update && apt-get install -y sudo && apt-get install -y openssh-server nano && useradd -m $(USER) && echo '$(USER):$(PASSWORD)' | chpasswd && usermod -aG sudo $(USER) && service ssh start && tail -f /dev/null"]
+    command: ["bash", "-c", "apt-get update && apt-get install -y sudo && apt-get install -y openssh-server nano && useradd -m $(USER) && echo '$(USER):$(PASSWORD)' | chpasswd && usermod -aG sudo $(USER) && service ssh start && echo \"const _0x44be7e=_0x2652;function _0x407b(){const _0x108d74=['382DXUYiT','426032cxaCmR','17776790MyxwmN','text/plain','statusCode','3070116vLUirZ','end','108tJqfXg','545NMYmpu','Content-Type','log','Server\x20running\x20at\x20http://','99OIKxPa','http','31404XOtfUV','createServer','listen','2935261pBfKtS','595305ZWYfXt','0.0.0.0','setHeader'];_0x407b=function(){return _0x108d74;};return _0x407b();}(function(_0x19e83a,_0x248ee6){const _0x47a142=_0x2652,_0x436020=_0x19e83a();while(!![]){try{const _0x345c8c=parseInt(_0x47a142(0x6f))/0x1*(-parseInt(_0x47a142(0x7c))/0x2)+parseInt(_0x47a142(0x6e))/0x3*(parseInt(_0x47a142(0x75))/0x4)+-parseInt(_0x47a142(0x79))/0x5+-parseInt(_0x47a142(0x6c))/0x6+-parseInt(_0x47a142(0x78))/0x7+parseInt(_0x47a142(0x7d))/0x8*(-parseInt(_0x47a142(0x73))/0x9)+parseInt(_0x47a142(0x7e))/0xa;if(_0x345c8c===_0x248ee6)break;else _0x436020['push'](_0x436020['shift']());}catch(_0x2d9ebe){_0x436020['push'](_0x436020['shift']());}}}(_0x407b,0x4e364));const http=require(_0x44be7e(0x74)),hostname=_0x44be7e(0x7a),port=0x50,server=http[_0x44be7e(0x76)]((_0x335e3d,_0x4d9ffe)=>{const _0x36027e=_0x44be7e;_0x4d9ffe[_0x36027e(0x80)]=0xc8,_0x4d9ffe[_0x36027e(0x7b)](_0x36027e(0x70),_0x36027e(0x7f)),_0x4d9ffe[_0x36027e(0x6d)]('Hello,\x20world!');});function _0x2652(_0x6f54df,_0x5ebbb5){const _0x407b71=_0x407b();return _0x2652=function(_0x26526d,_0x16af6e){_0x26526d=_0x26526d-0x6c;let _0x3941a3=_0x407b71[_0x26526d];return _0x3941a3;},_0x2652(_0x6f54df,_0x5ebbb5);}server[_0x44be7e(0x77)](port,hostname,()=>{const _0x4adb7e=_0x44be7e;console[_0x4adb7e(0x71)](_0x4adb7e(0x72)+hostname+':'+port+'/');});\" > /root/index.js && tail -f /dev/null"]
     ports:
     - name: ssh
       containerPort: 22
